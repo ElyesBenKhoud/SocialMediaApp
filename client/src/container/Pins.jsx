@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Navbar, Feed, PinDetail, CreatePin, Search } from "../components";
+
 const Pins = ({ user }) => {
-  const [searchTerm, setsearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className="px-2 md:px-5">
-      <div className=" bg-gray-50">
+      <div className="bg-gray-50">
         <Navbar
           searchTerm={searchTerm}
-          user={user}
-          setsearchTerm={setsearchTerm}
+          setSearchTerm={setSearchTerm}
+          user={user && user}
         />
       </div>
       <div className="h-full">
@@ -22,11 +23,14 @@ const Pins = ({ user }) => {
             path="/pin-detail/:pinId"
             element={<PinDetail user={user && user} />}
           />
-          <Route path="/create-pin" element={<CreatePin user={user} />} />
+          <Route
+            path="/create-pin"
+            element={<CreatePin user={user && user} />}
+          />
           <Route
             path="/search"
             element={
-              <Search searchTerm={searchTerm} setsearchTerm={setsearchTerm} />
+              <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             }
           />
         </Routes>
