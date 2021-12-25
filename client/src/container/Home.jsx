@@ -11,7 +11,7 @@ import { userQuery } from "../utils/data";
 
 const Home = () => {
   const [toggleSidebar, settoggleSidebar] = useState(false);
-  const [user, setuser] = useState(null);
+  const [user, setuser] = useState();
   const scrollRef = useRef(null);
 
   const userInfo =
@@ -25,11 +25,11 @@ const Home = () => {
     client.fetch(query).then((data) => {
       setuser(data[0]);
     });
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
-  }, []);
+  });
 
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out">
