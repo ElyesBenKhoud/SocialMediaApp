@@ -8,6 +8,6 @@ It's all about app for sharing pictures related many categories where people can
 
 ![ShareMe](https://i.ibb.co/8cLfj3X/image.png)
 
-## Introduction
+## Technologies
 
 Using React, Tailwind & Sanity
