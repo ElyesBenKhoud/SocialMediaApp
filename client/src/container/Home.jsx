@@ -25,7 +25,7 @@ const Home = () => {
     client.fetch(query).then((data) => {
       setuser(data[0]);
     });
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
