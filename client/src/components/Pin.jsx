@@ -20,18 +20,20 @@ const Pin = ({ pin }) => {
       ? JSON.parse(localStorage.getItem("user"))
       : localStorage.clear();
 
+  //delete pin
   const deletePin = (id) => {
     client.delete(id).then(() => {
       window.location.reload();
     });
   };
-
+  // check if it s saved already
   let alreadySaved = pin?.save?.filter(
     (item) => item?.postedBy?._id === user?.googleId
   );
 
   alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
 
+  //save pin function
   const savePin = (id) => {
     if (alreadySaved?.length === 0) {
       setSavingPost(true);
