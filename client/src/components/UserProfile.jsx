@@ -30,6 +30,7 @@ const UserProfile = () => {
       ? JSON.parse(localStorage.getItem("user"))
       : localStorage.clear();
 
+  //to be refactored ! Alert(2 useffect same component)
   useEffect(() => {
     const query = userQuery(userId);
     client.fetch(query).then((data) => {
